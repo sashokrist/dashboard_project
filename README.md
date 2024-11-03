@@ -29,8 +29,6 @@ php artisan key:generate
 
 Set database credentials in .env
 
-php artisan migrate
-
  php artisan migrate --seed    //to be able to see the grind, the user must run migration and seed and login with user1@test.com      password:12345678
 
 npm install
