@@ -9,6 +9,12 @@
 
 Install and run the project follow these steps:
 
+If you run migration and seed it will create grind with 9 buttons 2 users:
+
+user1@test.com      password:12345678
+
+user1@test.com      password:12345678
+
 run in console:
 
 git clone git@github.com:sashokrist/dashboard_project.git
@@ -25,7 +31,7 @@ Set database credentials in .env
 
 php artisan migrate
 
-php artisan db:seed
+ php artisan migrate --seed    //to be able to see the grind, the user must run migration and seed and login with user1@test.com      password:12345678
 
 npm install
 
@@ -72,3 +78,14 @@ The user interface is built with Bootstrap, providing a responsive, mobile-frien
 AJAX Integration: AJAX is implemented for modal-based editing, creating a smoother, dynamic experience without full-page reloads.
 Laravel Backend: Built with Laravel, the backend manages user authentication, and button data storage, and provides RESTful API endpoints for button management.
 Database: The button configuration is stored in a relational database, including user ownership details for secure, user-specific access.
+
+Screenshots:
+
+![s1](https://github.com/user-attachments/assets/a76a980a-8c5a-4f7d-9b09-fe13ba4f019c)
+
+![s2](https://github.com/user-attachments/assets/9984cd70-da00-40ba-a5a3-e86dafe992bd)
+
+![s3](https://github.com/user-attachments/assets/20f62296-1f5f-46a6-b0ef-d6df8ed6579f)
+
+
+
