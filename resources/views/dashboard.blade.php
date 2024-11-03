@@ -21,13 +21,10 @@
                             <h5 class="text-white">{{ $button->title ?: 'Unnamed Button' }}</h5>
                             @if ($button->user_id === auth()->id())
                                 <div class="d-flex justify-content-center mt-3">
-                                    <!-- Config Button to Open Modal -->
                                     <button type="button" class="btn btn-warning btn-sm mr-2" style="width: 70px;"
                                             onclick="event.stopPropagation(); openEditModal({{ $button->id }}, '{{ $button->title }}', '{{ $button->link }}', '{{ $button->color }}')">
                                         Config
                                     </button>
-
-                                    <!-- Delete Button -->
                                     <form action="{{ route('buttons.destroy', $button->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -51,7 +48,6 @@
         </div>
     </div>
 
-    <!-- Edit Button Modal -->
     <div class="modal fade" id="editButtonModal" tabindex="-1" role="dialog" aria-labelledby="editButtonModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -83,30 +79,25 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <!-- Save Changes Button -->
                     <button type="button" class="btn btn-primary" onclick="submitEditForm()">Save Changes</button>
-                    <!-- Cancel Button -->
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Include jQuery and Bootstrap JS libraries in the correct order -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Function to open the edit modal and populate it with button data
         function openEditModal(buttonId, title, link, color) {
             document.getElementById('modal-title').value = title;
             document.getElementById('modal-link').value = link;
             document.getElementById('modal-color').value = color;
-            document.getElementById('edit-button-form').setAttribute('data-id', buttonId); // Store the button ID
-            $('#editButtonModal').modal('show'); // Open the modal
+            document.getElementById('edit-button-form').setAttribute('data-id', buttonId);
+            $('#editButtonModal').modal('show');
         }
 
-        // Function to handle form submission via AJAX
         function submitEditForm() {
             let buttonId = document.getElementById('edit-button-form').getAttribute('data-id');
             let title = document.getElementById('modal-title').value;
@@ -124,13 +115,18 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        document.getElementById('alert-success').innerHTML = data.message;
-                        document.getElementById('alert-success').classList.remove('d-none');
-                        $('#editButtonModal').modal('hide'); // Hide the modal using jQuery
-                        location.reload(); // Refresh the page to show changes
+                        const alertSuccess = document.createElement('div');
+                        alertSuccess.className = 'alert alert-success';
+                        alertSuccess.innerHTML = data.message;
+                        document.querySelector('.container').prepend(alertSuccess);
+                        $('#editButtonModal').modal('hide');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 5000);
                     } else {
-                        document.getElementById('alert-error').innerHTML = data.message || 'An error occurred while updating the button.';
-                        document.getElementById('alert-error').classList.remove('d-none');
+                        const alertError = document.getElementById('alert-error');
+                        alertError.innerHTML = data.message || 'An error occurred while updating the button.';
+                        alertError.classList.remove('d-none');
                     }
                 })
                 .catch(error => {
@@ -144,7 +140,7 @@
             if (link) {
                 window.open(link, '_blank');
             } else {
-                openEditModal(buttonId, '', '', '#000000'); // Open modal if no link is set
+                openEditModal(buttonId, '', '', '#000000');
             }
         }
 
@@ -164,12 +160,29 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        location.reload();
+                        const alertSuccess = document.createElement('div');
+                        alertSuccess.className = 'alert alert-success';
+                        alertSuccess.innerHTML = 'Button created successfully.';
+                        document.querySelector('.container').prepend(alertSuccess);
+
+                        setTimeout(() => {
+                            location.reload();
+                        }, 2000);
                     } else {
-                        alert('Failed to create new link.');
+                        const alertError = document.createElement('div');
+                        alertError.className = 'alert alert-danger';
+                        alertError.innerHTML = 'Failed to create new link.';
+                        document.querySelector('.container').prepend(alertError);
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    console.error('Error:', error);
+
+                    const alertError = document.createElement('div');
+                    alertError.className = 'alert alert-danger';
+                    alertError.innerHTML = 'An unexpected error occurred.';
+                    document.querySelector('.container').prepend(alertError);
+                });
         }
     </script>
 @endsection

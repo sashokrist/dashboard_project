@@ -34,7 +34,8 @@ class ButtonController extends Controller
 
         return response()->json([
             'success' => true,
-            'button' => $button
+            'message' => 'Button created successfully.',
+            'button' => $button,
         ]);
     }
 
@@ -55,7 +56,7 @@ class ButtonController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Button updated successfully.'
+            'message' => 'Button updated successfully.',
         ]);
     }
 
