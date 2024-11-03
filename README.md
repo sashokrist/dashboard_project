@@ -32,7 +32,9 @@ npm install
 npm run dev
 
 php artisan serve
+
 Project Description: Dynamic Link Dashboard with Configurable Buttons
+
 Overview
 
 The Dynamic Link Dashboard is a web application designed to manage and configure a set of customizable buttons, each with unique links, titles, and colors. Built with Laravel, this application provides users with a streamlined interface to create, edit, delete, and organize interactive buttons for quick access to specified URLs.
