@@ -13,7 +13,7 @@ run in console:
 
 git clone git@github.com:sashokrist/dashboard_project.git
 
-cd credit-system
+cd dashboard_project
 
 composer install
 
