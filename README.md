@@ -73,9 +73,17 @@ Technical Highlights
 Frontend:
 
 The user interface is built with Bootstrap, providing a responsive, mobile-friendly design.
-AJAX Integration: AJAX is implemented for modal-based editing, creating a smoother, dynamic experience without full-page reloads.
-Laravel Backend: Built with Laravel, the backend manages user authentication, and button data storage, and provides RESTful API endpoints for button management.
-Database: The button configuration is stored in a relational database, including user ownership details for secure, user-specific access.
+
+AJAX Integration:
+
+AJAX is implemented for modal-based editing, creating a smoother, dynamic experience without full-page reloads.
+Laravel Backend:
+
+Built with Laravel, the backend manages user authentication, and button data storage.
+
+Database:
+
+The button configuration is stored in a relational database, including user ownership details for secure, user-specific access.
 
 Screenshots:
 
