@@ -1,14 +1,17 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ButtonController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
 
-Route::get('/', [ButtonController::class, 'index']);
-Route::get('/configure/{id}', [ButtonController::class, 'configure'])->name('configure');
-Route::post('/configure/{id}', [ButtonController::class, 'store']);
-Route::get('/edit/{id}', [ButtonController::class, 'edit'])->name('edit');
-Route::delete('/delete/{id}', [ButtonController::class, 'destroy'])->name('delete');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [ButtonController::class, 'index'])->name('dashboard');
+    Route::post('/buttons/store', [ButtonController::class, 'store'])->name('buttons.store');
+    Route::put('/buttons/{id}', [ButtonController::class, 'update'])->name('buttons.update');
+    Route::delete('/buttons/{id}', [ButtonController::class, 'destroy'])->name('buttons.destroy');
+
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
