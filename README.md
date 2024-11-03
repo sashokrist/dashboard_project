@@ -58,10 +58,10 @@ Configurable Button Modal:
 Buttons marked "Config" open an inline modal where users can edit button details.
 The modal allows users to update the button’s title, link, and color without leaving the dashboard.
 AJAX is used for seamless, page-refresh-free updates.
+
 Button Management:
 
-Create New Button:
-
+Create New Button-
 Users can add a new button to the dashboard with a default title, link, and color.
 Edit Button: Through the modal, users can modify button properties. This includes adding a new URL link or changing the title and color.
 Delete Button: Users can delete a button, permanently removing it from the dashboard.
