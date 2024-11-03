@@ -55,7 +55,9 @@ The modal allows users to update the button’s title, link, and color without l
 AJAX is used for seamless, page-refresh-free updates.
 Button Management:
 
-Create New Button: Users can add a new button to the dashboard with a default title, link, and color.
+Create New Button:
+
+Users can add a new button to the dashboard with a default title, link, and color.
 Edit Button: Through the modal, users can modify button properties. This includes adding a new URL link or changing the title and color.
 Delete Button: Users can delete a button, permanently removing it from the dashboard.
 User-Specific Access:
@@ -64,7 +66,9 @@ Only authenticated users have access to the dashboard.
 Each user sees and manages only their own buttons.
 Technical Highlights
 
-Frontend: The user interface is built with Bootstrap, providing a responsive, mobile-friendly design.
+Frontend:
+
+The user interface is built with Bootstrap, providing a responsive, mobile-friendly design.
 AJAX Integration: AJAX is implemented for modal-based editing, creating a smoother, dynamic experience without full-page reloads.
-Laravel Backend: Built with Laravel, the backend manages user authentication, button data storage, and provides RESTful API endpoints for button management.
+Laravel Backend: Built with Laravel, the backend manages user authentication, and button data storage, and provides RESTful API endpoints for button management.
 Database: The button configuration is stored in a relational database, including user ownership details for secure, user-specific access.
