@@ -52,6 +52,7 @@ Dashboard Interface:
 The main dashboard displays a grid of user-configurable buttons.
 Each button includes a title, a color, and an optional URL link.
 Users can easily see all available buttons and click to open URLs directly.
+
 Configurable Button Modal:
 
 Buttons marked "Config" open an inline modal where users can edit button details.
