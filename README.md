@@ -65,6 +65,7 @@ Create New Button-
 Users can add a new button to the dashboard with a default title, link, and color.
 Edit Button: Through the modal, users can modify button properties. This includes adding a new URL link or changing the title and color.
 Delete Button: Users can delete a button, permanently removing it from the dashboard.
+
 User-Specific Access:
 
 Only authenticated users have access to the dashboard.
