@@ -33,7 +33,9 @@ npm run dev
 
 php artisan serve
 
-Project Description: Dynamic Link Dashboard with Configurable Buttons
+Project Description:
+
+Dynamic Link Dashboard with Configurable Buttons
 
 Overview
 
